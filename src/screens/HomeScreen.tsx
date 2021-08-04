@@ -5,6 +5,7 @@ import CustomButton from '../components/CustomButton';
 import Loader from '../components/Loader';
 
 const HomeScreen = (props: any) => {
+    
     const { navigation } = props;
     const [asteroidId, setAseroidId] = useState('');
     const [loading, setLoading] = useState(false);
@@ -23,8 +24,8 @@ const HomeScreen = (props: any) => {
 
     const navigateToAsteroidInfo = (asteroidInfo: any) => {
         setLoading(false)
-        if(asteroidInfo != null){
-        navigation.navigate('AsteroidInfo', { asteroid: asteroidInfo })
+        if (asteroidInfo != null) {
+            navigation.navigate('AsteroidInfo', { asteroid: asteroidInfo })
         } else {
             Alert.alert('Error', 'Getting error while fetching the asteroid details')
         }
@@ -48,7 +49,7 @@ const HomeScreen = (props: any) => {
                     isDisabled={!asteroidId}
                     onSubmit={getAsteroidDetails} />
             </View>
-            <Loader isLoading={loading}/>
+            <Loader isLoading={loading} />
         </SafeAreaView>
     )
 }
@@ -57,8 +58,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        paddingHorizontal: 16,
-        backgroundColor: '#FFFFFF'
+        marginHorizontal: 16
     },
     btnContainer: {
         flexDirection: 'row',
@@ -72,7 +72,9 @@ const styles = StyleSheet.create({
         paddingStart: 8,
         paddingEnd: 8,
         marginBottom: 10,
-        borderRadius: 5
+        borderRadius: 5,
+        height: 48,
+        elevation: 2
     }
 })
 
